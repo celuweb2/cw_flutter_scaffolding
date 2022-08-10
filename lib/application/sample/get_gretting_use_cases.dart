@@ -10,7 +10,7 @@ class GetGrettingUseCases {
 
   Future<Either<Failure, Sample>> execute() async {
     try {
-      Sample sample = sampleRepository.getGretting() as Sample;
+      Sample sample = await sampleRepository.getGretting();
       return Right(sample);
     } catch (e) {
       return Left(ServerFailure(e.toString()));
